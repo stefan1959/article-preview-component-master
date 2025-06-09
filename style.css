@@ -1,0 +1,198 @@
+:root {
+  /* ## Colors */
+  --white: 0 0 100%;
+  --very-dark-grayish-blue: 217 19% 35%;
+  --desaturated-dark-blue: 214 17% 51%;
+  --grayish-blue: 212 23% 69%;
+  --light-grayish-blue: 210 46% 95%;
+  --border-radius: 10px;
+  font-size: 13px;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url(/fonts/Manrope-VariableFont_wght.ttf);
+}
+.fill-white {
+  fill: hsl(var(--white));
+}
+
+body {
+  display: grid;
+  color: hsl(var(--very-dark-grayish-blue));
+
+  gap: 1rem;
+  place-content: center;
+  height: 100dvh;
+  font-family: "Manrope";
+  margin: 1rem;
+  background-color: hsl(var(--light-grayish-blue));
+}
+.preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+}
+.preview-image img {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+.preview_content {
+  display: grid;
+  background-color: hsl(var(--white));
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.preview_content-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1.5rem 2.5rem;
+  color: hsl(var(--very-dark-grayish-blue));
+}
+.preview_content-contact {
+  position: relative;
+  background: hsl(var(--white));
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.preview_content p {
+  font-size: 0.9rem;
+  padding: 0 2.5rem 1rem;
+}
+.preview_content-contact-name {
+  font-weight: 700;
+}
+.preview_content-contact-person {
+  position: relative;
+  padding-left: 5rem;
+}
+.preview_content-contact-person::before {
+  --image-size: 50px;
+  content: "";
+  left: 0;
+  top: -9px;
+  position: absolute;
+  background: url(/images/avatar-michelle.jpg);
+  background-size: cover;
+  width: var(--image-size);
+  height: var(--image-size);
+  border-radius: 50%;
+}
+.preview_content-contact-share {
+  --image-size: 36px;
+  display: grid;
+  place-content: center;
+  background-color: hsl(var(--light-grayish-blue));
+  height: var(--image-size);
+  width: var(--image-size);
+  border-radius: 50%;
+}
+.preview_content-contact-share:hover {
+  cursor: pointer;
+}
+.active {
+  /* outline: 3px solid red; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 2.5rem;
+  height: 65px;
+  background-color: hsl(var(--very-dark-grayish-blue));
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.active-share {
+  display: flex;
+  gap: 1.2rem;
+  width: 100%;
+  justify-content: space-between;
+  color: hsl(var(--white));
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+}
+.act-socials {
+  display: flex;
+  gap: 1rem;
+}
+.act-image {
+  cursor: pointer;
+  display: grid;
+  background-color: hsl(var(--desaturated-dark-blue));
+  place-content: center;
+  padding: 0.7rem;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+.act-image img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
+    hue-rotate(332deg) brightness(108%) contrast(106%);
+}
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+  .preview {
+    flex-direction: row;
+    max-width: 650px;
+  }
+  .preview-image {
+    width: 100%;
+    height: 100%;
+  }
+  .preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    border-bottom-left-radius: var(--border-radius);
+    border-top-right-radius: 0;
+  }
+  .preview_content {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-left-radius: 0;
+    padding-block: 1.2rem;
+  }
+  .active {
+    top: -55px;
+    left: auto;
+    right: -70px;
+    width: 250px;
+    height: 50px;
+    border-radius: var(--border-radius);
+  }
+  .active::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid hsl(var(--very-dark-grayish-blue));
+  }
+  .act-image {
+    display: none;
+  }
+}
+
+/* Front End Attribution */
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+.hidden {
+  display: none;
+}
